@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -15,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,9 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatSelectModule
+
 
   ]
 })

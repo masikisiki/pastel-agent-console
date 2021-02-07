@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { PastelConfigService } from './services/pastel-config.service';
 import { HttpClientModule } from '@angular/common/http';
-  
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     DefaultModule,
     SharedModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [PastelConfigService],
   bootstrap: [AppComponent]

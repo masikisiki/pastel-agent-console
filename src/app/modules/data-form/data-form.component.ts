@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { SchedulerOption } from 'src/app/models/scheduler-option';
 
 @Component({
   selector: 'app-data-form',
@@ -11,6 +12,10 @@ export class DataFormComponent implements OnInit {
   @Input()
   data = {};
 
+  @Input()
+  schedulerOptions = new Array<SchedulerOption>();
+
+
   @Output()
   onSaveChanges: EventEmitter<{}> = new EventEmitter();
 
@@ -20,7 +25,7 @@ export class DataFormComponent implements OnInit {
 
   }
   excluded(key) {
-    return key === '$id' || key === 'Id' || key === 'Active' || key === 'FetchDate'
+    return key === '$id' || key === 'Id' || key === 'Active' || key === 'FetchDate' || key === 'InsertDate' || key === 'Schedule'
   }
 
   getKeys(data: {}): string[] {

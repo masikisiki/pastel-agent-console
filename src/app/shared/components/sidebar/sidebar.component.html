@@ -11,7 +11,7 @@
     <h2 matSubheader>Pages</h2>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
-        <mat-icon>auto_graph</mat-icon> Dashbaord
+        <mat-icon>dashboard</mat-icon> Dashbaord
     </a>
 
     <a *ngFor="let navLink of navLinks" mat-list-item routerLinkActive="list-item-active" routerLink="/config/{{navLink}}">
@@ -26,7 +26,7 @@
     </a>
 
     <mat-divider></mat-divider>
-    <button mat-raised-button color="secondary">
+    <button mat-raised-button color="secondary" (click)="resetJobs()">
         <mat-icon>sync</mat-icon> Job Reset
     </button>
 

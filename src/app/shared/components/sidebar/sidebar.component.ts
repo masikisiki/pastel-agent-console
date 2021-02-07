@@ -1,3 +1,4 @@
+import { PastelConfigService } from 'src/app/services/pastel-config.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,11 +10,14 @@ export class SidebarComponent implements OnInit {
 
 
   navLinks = [
-    'SDK','OrderApi','Invoice','PriceList','Product', 'Customer'
+    'SDK', 'OrderApi', 'Invoice', 'PriceList', 'Product', 'Customer'
   ];
-  constructor() { }
+  constructor(private pService: PastelConfigService) { }
 
   ngOnInit(): void {
   }
 
+  resetJobs() {
+    this.pService.resetJobs().subscribe(() => this.pService.success('Job reset completed!'))
+  }
 }

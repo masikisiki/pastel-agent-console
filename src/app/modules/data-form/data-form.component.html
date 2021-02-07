@@ -1,24 +1,32 @@
 <div style="margin-top: 15px;">
-    <form fxLayout="column" fxLayoutAlign="space-between center"
-        style="padding: 20px; width: 50%; margin: auto; border-radius: 30px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;;">
-        <div *ngFor="let key of getKeys(data)">
-            <mat-form-field *ngIf="!excluded(key)" class="example-full-width">
-                <mat-label>{{key}}</mat-label>
-                <input type="text" [value]="data[key]" (change)="dataChange($event,key)" matInput>
-            </mat-form-field>
+  <form fxLayout="column" fxLayoutAlign="space-between center"
+    style="padding: 20px; width: 50%; margin: auto; border-radius: 30px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;;">
 
-            <mat-form-field *ngIf="key =='FetchDate'" class="example-full-width">
-                <input matInput [(ngModel)]="data['FetchDate']" name="fetchDate" [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+    <div *ngFor="let key of getKeys(data)">
+      <mat-form-field *ngIf="!excluded(key)" class="example-full-width">
+        <mat-label>{{key}}</mat-label>
+        <input type="text" [value]="data[key]" (change)="dataChange($event,key)" matInput>
+      </mat-form-field>
 
-            <mat-slide-toggle name="state" [(ngModel)]="data['Active']"
-                *ngIf="key=='Active'" color="primary">Active</mat-slide-toggle>
-        </div>
+      <mat-form-field appearance="fill" *ngIf="key =='Schedule'" class="example-full-width">
+        <mat-label>{{key}}</mat-label>
+        <mat-select [(value)]="data[key]">
+          <mat-option *ngFor="let option of schedulerOptions" value="{{option.Name}}">{{option.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <div style="width: 100%; display: flex;flex-direction: row; justify-content: flex-end;">
-            <button mat-raised-button color="primary" (click)='emitSaveEvent()'>Save Changes</button>
-        </div>
-    </form>
+      <mat-form-field *ngIf="key =='FetchDate'" class="example-full-width">
+        <input matInput [(ngModel)]="data['FetchDate']" name="fetchDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-slide-toggle name="state" [(ngModel)]="data['Active']" *ngIf="key=='Active'" color="primary">Active
+      </mat-slide-toggle>
+    </div>
+
+    <div style="width: 100%; display: flex;flex-direction: row; justify-content: flex-end;">
+      <button mat-raised-button color="primary" (click)='emitSaveEvent()'>Save Changes</button>
+    </div>
+  </form>
 </div>
