@@ -11,8 +11,8 @@ import { DataFormComponent } from 'src/app/modules/data-form/data-form.component
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -36,8 +36,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatNativeDateModule,
     MatButtonModule,
     MatSelectModule
-
-
   ]
 })
 export class DefaultModule { }
