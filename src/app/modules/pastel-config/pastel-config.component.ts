@@ -30,7 +30,6 @@ export class PastelConfigComponent implements OnInit {
   }
 
   loadData(config: string) {
-    console.log(config);
     this.pService.loadConfig(config).subscribe(data => {
       data = data ? data : chooseDefult(this.target);
       this.data = this.resolveScheduler(data);
@@ -39,10 +38,8 @@ export class PastelConfigComponent implements OnInit {
   }
 
   resolveScheduler(data: {}): {} {
-    console.log('Schedules', this.schedulerOptions);
     if (data && data['Schedule']) {
       const schedule = this.schedulerOptions.find(a => a.Value == data['Schedule'])
-      console.log('Selected', schedule);
       if (schedule) {
         data['Schedule'] = schedule.Name;
       }
@@ -70,6 +67,8 @@ function chooseDefult(tartget: string) {
     case 'PriceList':
       data = defualts.find(a => a.label == 'configDefualtData');
       break;
+
+    case 'SupplierInvoice':
     case 'OrderApi':
       data = defualts.find(a => a.label == 'apiDefaultData');
       break;
@@ -78,6 +77,12 @@ function chooseDefult(tartget: string) {
       break;
     case 'FTP':
       data = defualts.find(a => a.label == 'ftpDefaultData')
+      break;
+    case 'ModitorMicrosInvoice':
+      data = defualts.find(a => a.label == 'moditorMicrosInvoice')
+      break;
+    case 'MagicCloud':
+      data = defualts.find(a => a.label == 'magicCloud')
       break;
   }
 
@@ -114,10 +119,6 @@ const defualts = [
       $id: "1",
       Address: "127.0.0.1",
       Port: 21,
-      DeliveryChargeCode: "",
-      DeliveryChargeDesc: "",
-      DeliveryChargeLimit: 0,
-      DeliveryChargeAmount: 0,
       Active: false,
       Username: "User",
       Password: "Password",
@@ -140,5 +141,34 @@ const defualts = [
       Password: "Password",
       Id: "aa79f23b-5707-4c59-8a2d-5c09702f1a47",
     }
-  }
+  },
+  {
+    label: 'moditorMicrosInvoice',
+    data: {
+      "Schedule": 0,
+      "CollectionId": "string",
+      "CollectionName": "string",
+      "Username": "string",
+      "Password": "string",
+      "ApiBaseUrl": "string",
+      "FetchDate": "2021-03-03T14:25:42.199Z",
+      "Id": "string",
+      "Active": true,
+      "InsertDate": "2021-03-03T14:25:42.199Z"
+    }
+  },
+
+  {
+    label: 'magicCloud',
+    data: {
+      "Schedule": 0,
+      "MagicCloudUri": "string",
+      "MagicCloudUserName": "string",
+      "MagicCloudPassword": "string",
+      "CompanyIdsCommaSeperated":"string",
+      "Id": "string",
+      "Active": true,
+      "InsertDate": "2021-03-03T14:25:42.186Z"
+    }
+  },
 ];

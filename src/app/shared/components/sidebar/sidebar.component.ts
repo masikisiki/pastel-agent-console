@@ -10,7 +10,7 @@ export class SidebarComponent implements OnInit {
 
 
   navLinks = [
-    'SDK', 'OrderApi', 'Invoice', 'PriceList', 'Product', 'Customer'
+    'SDK', 'OrderApi','SupplierInvoice', 'Invoice', 'PriceList', 'Product', 'Customer','ModitorMicrosInvoice','MagicCloud'
   ];
   constructor(private pService: PastelConfigService) { }
 
@@ -19,5 +19,9 @@ export class SidebarComponent implements OnInit {
 
   resetJobs() {
     this.pService.resetJobs().subscribe(() => this.pService.success('Job reset completed!'))
+  }
+
+  resetMicrosJobs() {
+    this.pService.resetMicrosJobs().subscribe(() => this.pService.success('Micros Job reset completed!'))
   }
 }

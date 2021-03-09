@@ -1,0 +1,11 @@
+<h3>Processed Orders</h3>
+<ag-grid-angular #agGrid id="agGrid" row-animation pagination style="width: 650px; height: 300px;"
+  class="ag-theme-alpine" [rowData]="invoices$ | async" [columnDefs]="columnDefs" rowSelection="multiple">
+</ag-grid-angular>
+
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-raised-button (click)="getSelectedRows()">Remove From List</button>
+  </mat-toolbar-row>
+</mat-toolbar>

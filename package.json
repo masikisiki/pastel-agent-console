@@ -23,6 +23,8 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
+    "ag-grid-angular": "^25.1.0",
+    "ag-grid-community": "^25.1.0",
     "highcharts": "^8.2.2",
     "highcharts-angular": "^2.9.0",
     "material-design-icons": "^3.0.1",

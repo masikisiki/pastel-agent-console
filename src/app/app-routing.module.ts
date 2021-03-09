@@ -13,7 +13,7 @@ const routes: Routes = [
       {
         path: '',
         // component: DashboardComponent
-        redirectTo: '/config/SDK', pathMatch: 'full'
+         redirectTo: '/config/SDK', pathMatch: 'full'
       },
       {
         path: 'config',

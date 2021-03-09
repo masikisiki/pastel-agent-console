@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Invoice } from '../models/invoice';
 
 
 @Injectable({
@@ -28,10 +29,21 @@ export class PastelConfigService {
       .pipe(catchError(error => this.handlerError(error, {})));;
   }
 
+  public resetMicrosJobs(): Observable<any> {
+    return this.http.post(`http://localhost:8881/api/ModitorMicrosInvoiceJobReset`, {})
+      .pipe(catchError(error => this.handlerError(error, {})));;
+  }
+
   public loadSchedulerOptions(): Observable<any> {
     return this.http.get<SchedulerOption>(`http://localhost:8881/api/ScheduleOptions`)
       .pipe(catchError(error => this.handlerError(error, {})));;
   }
+
+  loadProcessedInvoices(): Observable<any> {
+    return this.http.get<Invoice>(`http://localhost:8881/api/ProcessdInvoice`)
+      .pipe(catchError(error => this.handlerError(error, {})));;
+  }
+
 
   public success(message: string) {
     this.snackBar.open(message, 'Dismiss', {

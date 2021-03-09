@@ -1,5 +1,5 @@
 <mat-nav-list>
-    <!-- <div class="profile-card">
+  <!-- <div class="profile-card">
         <div class="header">
             <h2>Lizo Masikisiki</h2>
             <h4>Developer</h4>
@@ -8,29 +8,34 @@
     </div>
 
     <mat-divider></mat-divider> -->
-    <h2 matSubheader>Pages</h2>
+  <h2 matSubheader>Pages</h2>
 
-    <a mat-list-item routerLinkActive="list-item-active"  routerLinkActive="active" routerLink="/">
-        <mat-icon>dashboard</mat-icon> Dashbaord
-    </a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLinkActive="active" routerLink="/">
+    <mat-icon>dashboard</mat-icon> Dashbaord
+  </a>
 
-    <a *ngFor="let navLink of navLinks" mat-list-item routerLinkActive="list-item-active" routerLink="/config/{{navLink}}">
-        <mat-icon>settings</mat-icon> {{navLink}}
-    </a>
+  <a *ngFor="let navLink of navLinks" mat-list-item routerLinkActive="list-item-active"
+    routerLink="/config/{{navLink}}">
+    <mat-icon>settings</mat-icon> {{navLink}}
+  </a>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <h2 matSubheader>Tools</h2>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>import_contacts</mat-icon>Documentation
-    </a>
+  <button mat-raised-button color="secondary" (click)="resetJobs()">
+    <mat-icon>sync</mat-icon> Job Reset
+  </button>
 
-    <mat-divider></mat-divider>
-    <button mat-raised-button color="secondary" (click)="resetJobs()">
-        <mat-icon>sync</mat-icon> Job Reset
-    </button>
+  <button mat-raised-button color="secondary" (click)="resetMicrosJobs()">
+    <mat-icon>sync</mat-icon> Micros Job Reset
+  </button>
 
-    <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+  <mat-divider></mat-divider>
+  <h2 matSubheader>Tools</h2>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+    <mat-icon>import_contacts</mat-icon>Documentation
+  </a>
+
+  <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
         <mat-icon>contact_phone</mat-icon>Leads
     </a> -->
 
