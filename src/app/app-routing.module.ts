@@ -12,8 +12,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // component: DashboardComponent
-         redirectTo: '/config/SDK', pathMatch: 'full'
+        component: DashboardComponent
+        //  redirectTo: '/config/SDK', pathMatch: 'full'
       },
       {
         path: 'config',
